@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valority - Sign Up</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef8ff;
+}
+
+h1,h2{
+    font-family:'Lilita One',cursive;
+    font-weight:400;
+}
+
+.page{
+    position:relative;
+    width:100vw;
+    height:100vh;
+}
+
+.page-bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    z-index:0;
+}
+
+.login-link{
+    position:absolute;
+    top:30px;
+    right:5%;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.login-link span{
+    color:#2c3a58;
+    font-weight:500;
+}
+
+.login-btn-top{
+    padding:12px 28px;
+    border:2px solid #4b7dff;
+    border-radius:12px;
+    text-decoration:none;
+    color:#4b7dff;
+    font-weight:600;
+    background:rgba(255,255,255,.85);
+}
+
+.card{
+    position:absolute;
+    top:50%;
+    right:5%;
+    transform:translateY(-50%);
+    width:480px;
+    max-width:42%;
+    max-height:88vh;
+    overflow-y:auto;
+    background:rgba(255,255,255,.95);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
+    z-index:1;
+}
+
+.card h2{
+    text-align:center;
+    font-size:46px;
+    color:#102b72;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6c7584;
+    margin-top:10px;
+    margin-bottom:30px;
+    font-size:14px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#24314d;
+    font-size:14px;
+}
+
+.input{
+    width:100%;
+    height:52px;
+    border:1px solid #d9e1ea;
+    border-radius:12px;
+    padding:0 16px;
+    font-size:15px;
+}
+
+.input:focus{
+    outline:none;
+    border-color:#4b7dff;
+}
+
+.terms{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    margin:20px 0;
+    color:#555;
+    font-size:14px;
+}
+
+.signup-btn{
+    width:100%;
+    height:58px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(90deg,#3567ff,#5b89ff);
+    color:white;
+    font-size:19px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.signup-btn:hover{
+    opacity:.95;
+}
+
+.signup-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.separator{
+    text-align:center;
+    margin:20px 0;
+    color:#777;
+    font-size:14px;
+}
+
+.social{
+    width:100%;
+    height:52px;
+    border:1px solid #d9e1ea;
+    background:white;
+    border-radius:12px;
+    margin-bottom:10px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.social:hover{
+    background:#f8fbff;
+}
+
+@media(max-width:1000px){
+
+html, body{
+    overflow-y:auto;
+    height:auto;
+}
+
+.page{
+    height:auto;
+    min-height:100vh;
+}
+
+.page-bg{
+    position:relative;
+    height:45vh;
+}
+
+.login-link{
+    top:16px;
+    right:16px;
+}
+
+.card{
+    position:relative;
+    top:auto;
+    right:auto;
+    transform:none;
+    width:92%;
+    max-width:92%;
+    margin:20px auto 40px;
+    max-height:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <img src="https://i.ibb.co/ynmgVZY8/valority-3.png" alt="Valority background" class="page-bg">
+
+    <div class="login-link">
+        <span>Already have an account?</span>
+        <a href="login.html" class="login-btn-top">Sign In</a>
+    </div>
+
+    <div class="card">
+
+        <h2>Sign Up</h2>
+
+        <p class="subtitle">
+            Create your account to begin your Valority adventure
+        </p>
+
+        <div class="input-group">
+            <label class="label">Full Name</label>
+            <input type="text" id="nombre" class="input" placeholder="Enter your full name">
+        </div>
+
+        <div class="input-group">
+            <label class="label">Username</label>
+            <input type="text" id="username" class="input" placeholder="Choose a username">
+        </div>
+
+        <div class="input-group">
+            <label class="label">Email Address</label>
+            <input type="email" id="email" class="input" placeholder="example@email.com">
+        </div>
+
+        <div class="input-group">
+            <label class="label">Password</label>
+            <input type="password" id="password" class="input" placeholder="Create a password">
+        </div>
+
+        <div class="input-group">
+            <label class="label">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="input" placeholder="Confirm your password">
+        </div>
+
+        <div class="input-group">
+            <label class="label">Age</label>
+            <input type="number" id="edad" class="input" placeholder="Enter your age">
+        </div>
+
+        <div class="terms">
+            <input type="checkbox" id="terminos">
+            <label>
+                I accept the Terms & Conditions and agree to
+                the Valority community guidelines.
+            </label>
+        </div>
+
+        <button type="button" class="signup-btn" id="btnCrearCuenta" onclick="crearCuenta()">
+            Create Account
+        </button>
+
+        <div class="separator">
+            or continue with
+        </div>
+
+        <button class="social" onclick="signInWithGoogle()">
+            Continue with Google
+        </button>
+
+        <button class="social" onclick="signInWithMicrosoft()">
+            Continue with Microsoft
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Librería de Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<!-- Lógica de registro -->
+<script src="signup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Valority</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Fredoka+One&family=Lilita+One&family=Luckiest+Guy&family=Nunito:wght@400;600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    html{
+      scroll-behavior:smooth;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --background:#f4f4f4;
+      --text:#263238;
+      --primary:#5368ff;
+      --primary-hover:#4357e6;
+    }
+
+    body{
+      background:var(--background);
+      color:var(--text);
+      font-family:"Nunito",sans-serif;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:min(1400px,100%);
+      margin:0 auto;
+      padding:0 50px;
+    }
+
+    /* ===== NAVBAR ===== */
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:28px 0;
+    }
+
+    .logo{
+      height:64px;
+      width:auto;
+      max-width:360px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--text);
+      font-size:1.15rem;
+      font-weight:800;
+    }
+
+    .register-btn{
+      border:none;
+      background:var(--primary);
+      color:#fff;
+      font-family:"Nunito",sans-serif;
+      font-size:1rem;
+      font-weight:800;
+      padding:15px 28px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:background .2s ease;
+      white-space:nowrap;
+    }
+
+    .register-btn:hover{
+      background:var(--primary-hover);
+    }
+
+    /* ===== HERO ===== */
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      align-items:center;
+      gap:30px;
+      min-height:calc(100vh - 120px);
+    }
+
+    .hero-content h1{
+      font-family:"Lilita One",sans-serif;
+      font-size:clamp(4rem,8vw,7rem);
+      line-height:.9;
+      font-weight:400;
+      margin-bottom:24px;
+    }
+
+    .hero-content p{
+      max-width:520px;
+      font-size:1.8rem;
+      line-height:1.3;
+      margin-bottom:36px;
+    }
+
+    .cta-btn{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      padding:18px 34px;
+      border-radius:10px;
+      font-size:1.3rem;
+      font-weight:800;
+      cursor:pointer;
+      transition:background .2s ease;
+    }
+
+    .cta-btn:hover{
+      background:var(--primary-hover);
+    }
+
+    .hero-image{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:none;
+      height:auto;
+      display:block;
+    }
+
+    /* ===== VALUES ===== */
+
+    .values-section{
+      max-width:1400px;
+      margin:0 auto;
+      padding:40px 20px 100px;
+    }
+
+    .values-title{
+      font-family:"Lilita One",sans-serif;
+      font-size:clamp(3rem,5vw,4.5rem);
+      text-align:center;
+      margin-bottom:12px;
+    }
+
+    .values-description{
+      max-width:1100px;
+      margin:0 auto 50px;
+      text-align:center;
+      font-family:"Poppins",sans-serif;
+      font-size:1.8rem;
+      line-height:1.2;
+      color:#3d454d;
+    }
+
+    .values-grid{
+      display:flex;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+
+    .value-card{
+      width:400px;
+      min-height:600px;
+      padding:24px;
+      border-radius:22px;
+
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .6s ease;
+    }
+
+    .value-card.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .value-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .empathy{
+      background:#d9e7f4;
+    }
+
+    .respect{
+      background:#ece9c9;
+    }
+
+    .honesty{
+      background:#f0d3d6;
+    }
+
+    .value-card h3{
+      font-family:"Lilita One",sans-serif;
+      font-size:2rem;
+      text-align:center;
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    .value-image{
+      width:360px;
+      height:360px;
+      margin:0 auto 24px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .value-image img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .value-card p{
+      font-family:"Poppins",sans-serif;
+      font-size:1.3rem;
+      line-height:1.45;
+      color:#333;
+      text-align:left;
+    }
+
+    /* ===== VIP PLANS ===== */
+
+    .vip-section{
+      padding:20px 40px 100px;
+    }
+
+    .vip-title{
+      text-align:center;
+    }
+
+    .discover,
+    .vip{
+      font-family:"Luckiest Guy",cursive;
+      color:#fff;
+      -webkit-text-stroke:2px #000;
+      font-size:72px;
+    }
+
+    .plans-text{
+      font-family:"Fredoka",sans-serif;
+      font-size:32px;
+      font-weight:700;
+      color:#555;
+    }
+
+    .vip-subtitle{
+      font-family:"Lilita One",sans-serif;
+      font-size:30px;
+      color:#555;
+      text-align:center;
+      max-width:900px;
+      margin:15px auto 70px;
+      line-height:1.1;
+    }
+
+    .vip-cards{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+
+    .plan{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .plan-title{
+  font-family:"Fredoka One",cursive;
+  font-size:3.5rem;
+  text-align:center;
+  line-height:1;
+  margin-bottom:15px;
+}
+
+.freemium-title{
+  color:#efbf58;
+  -webkit-text-stroke:2px #c99625;
+}
+
+.premium-title{
+  color:#87c738;
+  -webkit-text-stroke:2px #5f9720;
+}
+
+.schools-title{
+  color:#5875f6;
+  -webkit-text-stroke:2px #304fcf;
+}
+
+    .character-bg{
+      width:330px;
+      height:310px;
+      border-radius:55px;
+
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+
+      margin-bottom:-45px;
+    }
+
+    .bg-yellow{
+      background:#f4deaa;
+    }
+
+    .bg-green{
+      background:#a8eea8;
+    }
+
+    .bg-blue{
+      background:#b8caf8;
+    }
+
+    .character-bg img{
+      max-width:300px;
+      max-height:300px;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .bg-green img{
+      max-width:318px;
+    }
+
+    .bg-blue img{
+      max-width:396px;
+    }
+
+    .vip-card{
+      background:#e8e8ea;
+      border-radius:8px;
+      padding:15px;
+      text-align:center;
+      box-shadow:0 4px 10px rgba(0,0,0,.10);
+
+      position:relative;
+      z-index:2;
+
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .6s ease;
+    }
+
+    .vip-card.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .vip-card h2{
+  font-family:"Fredoka One",cursive;
+  line-height:1;
+  font-size:3.5rem;
+}
+
+.vip-card h3{
+  font-family:"Fredoka One",cursive;
+  line-height:1;
+  font-size:2.5rem;
+}
+
+    .vip-card h4{
+      font-family:"Lilita One",sans-serif;
+      margin:12px 0;
+      font-size:26px;
+    }
+
+    .vip-card p{
+      font-family:"Fredoka",sans-serif;
+      font-size:21px;
+      font-weight:600;
+      color:#666;
+      line-height:1.5;
+    }
+
+    .freemium{
+      width: 300px;
+      min-height:190px;
+      border:0.25px solid #efbf58;
+    }
+
+    .freemium h2{
+  color:#efbf58;
+  -webkit-text-stroke:2px #c99625;
+}
+
+.freemium h3,
+.freemium h4{
+  color:#efbf58;
+}
+    
+
+    .premium{
+      width:300px;
+      min-height:190px;
+      border:0.25px solid #87c738;
+    }
+
+    .premium h2{
+  color:#87c738;
+  -webkit-text-stroke:2px #5f9720;
+}
+
+.premium h3,
+.premium h4{
+  color:#87c738;
+}
+
+    .schools{
+      width:300px;
+      min-height: 190px;
+      border:0.25px solid #5875f6;
+    }
+
+    .schools h2{
+  color:#5875f6;
+  -webkit-text-stroke:2px #304fcf;
+}
+
+.schools h3,
+.schools h4{
+  color:#5875f6;
+}
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width:1100px){
+
+      .navbar{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-bottom:60px;
+      }
+
+      .hero-content p{
+        margin:0 auto 36px;
+      }
+
+      .hero-image{
+        order:-1;
+      }
+
+      .values-description{
+        font-size:1.3rem;
+      }
+
+      .vip-cards{
+        gap:40px;
+      }
+
+      .discover,
+      .vip{
+        font-size:55px;
+      }
+
+      .plans-text{
+        font-size:24px;
+      }
+
+      .vip-subtitle{
+        font-size:24px;
+      }
+    }
+
+    @media (max-width:768px){
+
+      .container{
+        padding:0 24px;
+      }
+
+      .logo{
+        height:48px;
+        max-width:240px;
+      }
+
+      .nav-links{
+        gap:18px;
+      }
+
+      .nav-links a{
+        font-size:1rem;
+      }
+
+      .hero-content h1{
+        font-size:4rem;
+      }
+
+      .hero-content p{
+        font-size:1.2rem;
+      }
+
+      .cta-btn{
+        width:100%;
+      }
+
+      .value-card{
+        width:100%;
+        max-width:340px;
+        min-height:auto;
+      }
+
+      .discover,
+      .vip{
+        font-size:42px;
+      }
+
+      .plans-text{
+        font-size:20px;
+      }
+
+      .vip-subtitle{
+        font-size:20px;
+      }
+    }
+    /* ===== MISSION & VISION ===== */
+
+.about-section{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 30px;
+}
+
+.about-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.vision-box{
+  width:300px;
+  height:305px;
+  background:#dce9f8;
+  border-radius:35px;
+  padding:28px;
+  position:relative;
+}
+
+.vision-box::after{
+  content:"";
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#dce9f8;
+  position:absolute;
+  right:-18px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.vision-box p{
+  color:#666;
+  font-size:18px;
+  line-height:1.05;
+}
+
+.vision-box h2{
+  font-family:'Lilita One',cursive;
+  color:#5870ff;
+  text-align:center;
+  font-size:30px;
+  margin-top:40px;
+}
+
+.mission-box{
+  width:300px;
+  height:305px;
+  background:#f8dddd;
+  border-radius:35px;
+  padding:28px;
+  position:relative;
+}
+
+.mission-box::before{
+  content:"";
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#f8dddd;
+  position:absolute;
+  left:-18px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.mission-box p{
+  color:#666;
+  font-size:18px;
+  line-height:1.05;
+}
+
+.mission-box h2{
+  font-family:'Lilita One',cursive;
+  color:#ff5a5a;
+  text-align:center;
+  font-size:30px;
+  margin-top:5px;
+}
+
+.about-center{
+  width:350px;
+  height:280px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.left-line{
+  position:absolute;
+  width:60px;
+  height:8px;
+  background:#dce9f8;
+  left:-25px;
+  top:120px;
+}
+
+.right-line{
+  position:absolute;
+  width:60px;
+  height:8px;
+  background:#f8dddd;
+  right:-25px;
+  top:220px;
+}
+
+.try-game{
+  text-align:center;
+  margin-top:120px;
+}
+
+.try-game h1{
+  font-family:'Lilita One',cursive;
+  font-size:64px;
+  color:#24313b;
+}
+
+.try-game button{
+  margin-top:20px;
+  padding:14px 35px;
+  border:none;
+  background:#87d6ef;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:700;
+}
+
+.try-game button:hover{
+  opacity:.9;
+}
+
+@media(max-width:1100px){
+
+  .about-content{
+    flex-direction:column;
+  }
+
+  .left-line,
+  .right-line{
+    display:none;
+  }
+
+}
+/* ===== OUR STORY ===== */
+
+.story-section{
+    width:100%;
+    padding:100px 80px;
+}
+
+.story-container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:100px;
+}
+
+.story-left{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.story-left img{
+    width:380px;
+    max-width:100%;
+}
+
+.story-right{
+    flex:1.3;
+}
+
+.story-right h1{
+    color:#f2c230;
+    font-size:64px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.story-right p{
+    color:#6f6f6f;
+    font-size:20px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.story-btn-container{
+    margin-top:45px;
+}
+
+.story-btn{
+    display:inline-block;
+    background:#8ac63f;
+    color:white;
+    text-decoration:none;
+    padding:22px 55px;
+    font-size:22px;
+    border-radius:5px;
+    transition:.3s;
+}
+
+.story-btn:hover{
+    background:#7bb633;
+}
+
+@media(max-width:1000px){
+
+    .story-container{
+        flex-direction:column;
+        text-align:center;
+        gap:50px;
+    }
+
+    .story-right h1{
+        font-size:48px;
+    }
+
+    .story-right p{
+        font-size:18px;
+    }
+
+    .story-left img{
+        width:280px;
+    }
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="navbar">
+
+      <img src="https://i.ibb.co/SwS1mVnP/descargar-11111.png" alt="Valority" class="logo">
+
+      <nav class="nav-links">
+        <a href="#company-values">Company Values</a>
+        <a href="#game-values">Game Values</a>
+        <a href="#plans">Plans</a>
+        <a href="#about-us">About Us</a>
+      </nav>
+
+      <button class="register-btn">
+        Register Now →
+      </button>
+
+    </header>
+
+    <main class="hero">
+
+      <section class="hero-content">
+
+        <h1>
+          Working your<br>
+          Values
+        </h1>
+
+        <p>
+          Valority is an app for children aged 5–9 that we created to teach values like empathy, honesty and respect in a creative and fun way.
+        </p>
+
+        <button class="cta-btn">
+          Try the App!
+        </button>
+
+      </section>
+
+      <section class="hero-image">
+
+        <img src="https://i.ibb.co/cK0760Wx/grande.png" alt="Valority App">
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <section class="values-section" id="game-values">
+
+    <h2 class="values-title">Values of the Game</h2>
+
+    <p class="values-description">
+      At Valority, we believe that teaching values is the most important lesson we can give our children. These are the core values we instill through our game:
+    </p>
+
+    <div class="values-grid">
+
+      <article class="value-card empathy">
+
+        <h3>Empathy</h3>
+
+        <div class="value-image">
+          <img src="https://i.ibb.co/nMrzRM8G/Empatia.png" alt="Empathy">
+        </div>
+
+        <p>
+          The ability to understand and share the feelings of others. It means imagining how someone else feels and offering support when needed.
+        </p>
+
+      </article>
+
+      <article class="value-card respect">
+
+        <h3>Respect</h3>
+
+        <div class="value-image">
+          <img src="https://i.ibb.co/xtK8wfQR/Respeto.png" alt="Respect">
+        </div>
+
+        <p>
+          Treating others with kindness and consideration, even when they have different opinions or beliefs. It means listening, being polite and respectful.
+        </p>
+
+      </article>
+
+      <article class="value-card honesty">
+
+        <h3>Honesty</h3>
+
+        <div class="value-image">
+          <img src="https://i.ibb.co/TD2fTqb4/Honestidad.png" alt="Honesty">
+        </div>
+
+        <p>
+          Always telling the truth and acting with sincerity. It involves being trustworthy, not lying or cheating, and choosing to do what is right.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="vip-section" id="plans">
+
+    <div class="vip-title">
+      <span class="discover">DISCOVER</span>
+      <span class="plans-text">our</span>
+      <span class="vip">VIP</span>
+      <span class="plans-text">plans.</span>
+    </div>
+
+    <div class="vip-subtitle">
+      At Valority, we have a VIP plan for every unique family and child.
+    </div>
+
+    <div class="vip-cards">
+
+     <div class="plan">
+
+  <h2 class="plan-title freemium-title">
+    <br>Freemium
+  </h2>
+
+  <div class="character-bg bg-yellow">
+    <img src="https://i.ibb.co/C585kpxQ/Perezoso-valority.png" alt="Freemium">
+  </div>
+
+  <div class="vip-card freemium">
+
+    <h3>1.99$</h3>
+
+    <h4>Another World, Another Style</h4>
+
+    <p>
+      A VIP plan that unlocks extra fun with one more world and two exclusive outfits for your child's avatar and no more ads.
+    </p>
+
+  </div>
+
+</div>
+
+      <div class="plan">
+
+  <h2 class="plan-title premium-title">
+   <br> Premium VIP
+  </h2>
+
+  <div class="character-bg bg-green">
+    <img src="https://i.ibb.co/VpB5wnRd/Tortuga-valority.png" alt="Premium VIP">
+  </div>
+
+  <div class="vip-card premium">
+
+    <h3>3.99$</h3>
+
+    <h4>More Worlds, More Styles</h4>
+
+    <p>
+      The Premium VIP plan unlocks
+the full Valority experience with
+two extra worlds and exclusive
+outfits — including one only in
+this plan and no more ads too
+    </p>
+
+  </div>
+
+</div>
+      <div class="plan">
+
+  <h2 class="plan-title schools-title">
+    <br>Valority <br>Schools
+  </h2>
+
+  <div class="character-bg bg-blue">
+    <img src="https://i.ibb.co/YTTGb0h5/Gato-valority.png" alt="Valority Schools">
+  </div>
+
+  <div class="vip-card schools">
+
+    <h3>50.00$ per Classroom</h3>
+
+    <h4>A New Experience</h4>
+
+    <p>
+      With Valority Schools, your school can access an exclusive VIP plan for 30 students, where the whole class learns values while having fun. A unique experience that makes learning truly inspiring and joyful!
+    </p>
+
+  </div>
+
+</div>
+    </div>
+
+  </section>
+  <section class="story-section" id="about-us">
+
+    <div class="story-container">
+
+        <div class="story-left">
+
+            <img src="https://i.ibb.co/SwS1mVnP/descargar-11111.png" alt="Valority Logo">
+
+        </div>
+
+        <div class="story-right">
+
+            <h1>Our Story</h1>
+
+            <p>
+                Can you imagine teaching kids values while they have fun and learn
+                through play? That’s the question we asked ourselves a year ago,
+                and that’s how Valority was born. Valority is an app we created
+                during a Microsoft hackathon to help fix the lack of education on
+                emotions and values in schools.
+
+                We saw that many children grow up without learning important values
+                like empathy, respect, and honesty. So, we looked for a fun,
+                creative, and interactive way to help them learn these values from
+                a young age.
+
+                With mini-games, stories, and challenges, Valority teaches kids
+                simple lessons they can use in everyday life.
+
+                In 2025, with new team members and the project growing into a
+                company, our mission is still the same. We want to help children
+                grow emotionally and learn to be kind, responsible, and caring
+                people who make the world better.
+
+                Join us and build your values!
+            </p>
+
+            <div class="story-btn-container">
+
+                <a href="#" class="story-btn">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="about-section" id="company-values">
+
+  <div class="about-content">
+
+    <div class="vision-box">
+
+      <p>
+        At Valority, we imagine a future where every child in the country learns values in a fun way,
+        inspiring them to apply those values every day and become the best version of themselves.
+      </p>
+
+      <h2>Valority's Vision</h2>
+
+    </div>
+
+    <div class="about-center">
+
+      <div class="left-line"></div>
+
+      <svg width="260" height="250" viewBox="0 0 260 250">
+
+        <circle cx="130" cy="70" r="48"
+                fill="none"
+                stroke="#EAC44B"
+                stroke-width="5"/>
+
+        <circle cx="130" cy="70" r="28"
+                fill="none"
+                stroke="#EAC44B"
+                stroke-width="5"/>
+
+        <path d="M120 63
+                 C120 50 140 50 140 63
+                 C140 70 136 73 134 76
+                 L134 83
+                 L126 83
+                 L126 76
+                 C124 73 120 70 120 63"
+                 fill="none"
+                 stroke="#EAC44B"
+                 stroke-width="4"/>
+
+        <line x1="122" y1="90" x2="138" y2="90"
+              stroke="#EAC44B"
+              stroke-width="4"/>
+
+        <line x1="130" y1="0" x2="130" y2="15" stroke="#EAC44B" stroke-width="5"/>
+        <line x1="130" y1="125" x2="130" y2="140" stroke="#EAC44B" stroke-width="5"/>
+        <line x1="95" y1="15" x2="85" y2="0" stroke="#EAC44B" stroke-width="5"/>
+        <line x1="165" y1="15" x2="175" y2="0" stroke="#EAC44B" stroke-width="5"/>
+        <line x1="90" y1="105" x2="80" y2="120" stroke="#EAC44B" stroke-width="5"/>
+        <line x1="170" y1="105" x2="180" y2="120" stroke="#EAC44B" stroke-width="5"/>
+
+        <path d="M70 70 C70 40 90 25 105 20"
+              fill="none"
+              stroke="#EAC44B"
+              stroke-width="5"/>
+
+        <polygon points="62,55 78,65 60,75"
+                 fill="none"
+                 stroke="#EAC44B"
+                 stroke-width="5"/>
+
+        <path d="M190 20 C210 25 230 40 230 70"
+              fill="none"
+              stroke="#EAC44B"
+              stroke-width="5"/>
+
+        <polygon points="238,55 222,65 240,75"
+                 fill="none"
+                 stroke="#EAC44B"
+                 stroke-width="5"/>
+
+        <circle cx="185" cy="190" r="55"
+                fill="none"
+                stroke="#7CC12F"
+                stroke-width="8"/>
+
+        <circle cx="185" cy="190" r="35"
+                fill="none"
+                stroke="#7CC12F"
+                stroke-width="8"/>
+
+        <circle cx="185" cy="190" r="15"
+                fill="none"
+                stroke="#7CC12F"
+                stroke-width="8"/>
+
+        <line x1="185" y1="190"
+              x2="225" y2="150"
+              stroke="#7CC12F"
+              stroke-width="8"/>
+
+        <polygon points="225,150 214,150 225,138"
+                 fill="#7CC12F"/>
+
+        <circle cx="175" cy="130" r="13"
+                fill="white"
+                stroke="#7CC12F"
+                stroke-width="3"/>
+
+        <path d="M169 130 L174 135 L181 125"
+              fill="none"
+              stroke="#7CC12F"
+              stroke-width="3"/>
+
+      </svg>
+
+      <div class="right-line"></div>
+
+    </div>
+
+    <div class="mission-box">
+
+      <p>
+        Our mission is to improve and reinforce values in children in a didactic,
+        creative, and fun way, through games, allowing them to live these principles
+        in their daily lives. This serves as a solid foundation to face the challenges
+        of society in the future.
+      </p>
+
+      <h2>Valority's Mission</h2>
+
+    </div>
+
+  </div>
+
+  <div class="try-game">
+
+    <h1>Try our game</h1>
+
+    <button class="try-game-btn">
+      Click Here →
+    </button>
+
+  </div>
+
+</section>
+  <script>
+    document.querySelector(".cta-btn").addEventListener("click", () => {
+      window.location.href = "valority_prototype.html";
+    });
+
+    document.querySelector(".register-btn").addEventListener("click", () => {
+      window.location.href = "signup.html";
+    });
+
+    document.querySelector(".try-game-btn").addEventListener("click", () => {
+      window.location.href = "valority_prototype.html";
+    });
+
+    document.querySelectorAll(".value-card").forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("show");
+      }, index * 250);
+    });
+
+    document.querySelectorAll(".vip-card").forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("show");
+      }, 800 + index * 250);
+    });
+  </script>
+
+</body>
+</html>

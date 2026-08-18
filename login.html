@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valority - Sign In</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef8ff;
+    min-height:100vh;
+}
+
+h1,h2{
+    font-family:'Lilita One',cursive;
+    font-weight:400;
+}
+
+html, body{
+    height:100%;
+    overflow:hidden;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* LEFT SIDE */
+
+.left{
+    width:50%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+}
+
+.left img.bg-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+}
+
+.left::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:280px;
+    background:linear-gradient(to bottom, rgba(238,248,255,.85) 0%, rgba(238,248,255,0) 100%);
+    z-index:1;
+}
+
+.logo{
+    position:absolute;
+    top:30px;
+    left:40px;
+    width:180px;
+    z-index:2;
+}
+
+.welcome{
+    position:absolute;
+    top:110px;
+    left:0;
+    width:100%;
+    text-align:center;
+    z-index:2;
+}
+
+.welcome h1{
+    color:#102b72;
+    font-size:56px;
+    line-height:1.1;
+}
+
+.welcome p{
+    margin-top:14px;
+    font-size:19px;
+    font-weight:500;
+    color:#2c3a58;
+    line-height:1.5;
+    padding:0 50px;
+}
+
+/* RIGHT SIDE */
+
+.right{
+    width:50%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    overflow-y:auto;
+}
+
+.card{
+    width:460px;
+    max-width:100%;
+    background:white;
+    border-radius:28px;
+    padding:40px 45px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+}
+
+.card h2{
+    text-align:center;
+    font-size:44px;
+    color:#102b72;
+    letter-spacing:1px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6c7584;
+    margin-top:10px;
+    margin-bottom:35px;
+    font-size:15px;
+}
+
+.subtitle a{
+    color:#4b7dff;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.subtitle a:hover{
+    text-decoration:underline;
+}
+
+.input-group{
+    margin-bottom:20px;
+    position:relative;
+}
+
+.label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#24314d;
+    font-size:14px;
+}
+
+.input{
+    width:100%;
+    height:58px;
+    border:1px solid #d9e1ea;
+    border-radius:12px;
+    padding:0 45px 0 18px;
+    font-size:15px;
+}
+
+.input:focus{
+    outline:none;
+    border-color:#4b7dff;
+}
+
+.toggle-password{
+    position:absolute;
+    right:16px;
+    top:44px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    font-size:18px;
+    color:#9aa3b2;
+    line-height:1;
+}
+
+.toggle-password:hover{
+    color:#4b7dff;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:6px 0 28px;
+    color:#555;
+    font-size:14px;
+}
+
+.remember label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+}
+
+.remember a{
+    color:#4b7dff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.remember a:hover{
+    text-decoration:underline;
+}
+
+.signin-btn{
+    width:100%;
+    height:65px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(90deg,#3567ff,#5b89ff);
+    color:white;
+    font-size:22px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(53,103,255,.3);
+}
+
+.signin-btn:hover{
+    opacity:.95;
+}
+
+.signin-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    box-shadow:none;
+}
+
+.separator{
+    text-align:center;
+    margin:25px 0;
+    color:#777;
+}
+
+.social{
+    width:100%;
+    height:58px;
+    border:1px solid #d9e1ea;
+    background:white;
+    border-radius:12px;
+    margin-bottom:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.social:hover{
+    background:#f8fbff;
+}
+
+@media(max-width:1200px){
+
+.container{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.card{
+    width:95%;
+}
+
+.welcome h1{
+    font-size:40px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left">
+
+        <!-- REPLACE WITH YOUR LOGO PNG -->
+        <img src="https://i.ibb.co/SwS1mVnP/descargar-11111.png" class="logo" alt="Valority">
+
+        <div class="welcome">
+            <h1>Welcome back!</h1>
+            <p>
+                Sign in to keep growing your values,
+                unlocking achievements and having
+                fun every day.
+            </p>
+        </div>
+
+        <img src="https://i.ibb.co/QFS3fZHD/image.png" alt="Valority Kids" class="bg-image">
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right">
+
+        <div class="card">
+
+            <h2>Sign In</h2>
+
+            <p class="subtitle">
+                Not a member? <a href="signup.html">Register now!</a>
+            </p>
+
+            <div class="input-group">
+                <label class="label">Email Address</label>
+                <input type="email" id="loginEmail" class="input" placeholder="john.abc@gmail.com">
+            </div>
+
+            <div class="input-group">
+                <label class="label">Password</label>
+                <input type="password" id="loginPassword" class="input" placeholder="Enter your password">
+                <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+            </div>
+
+            <div class="remember">
+                <label>
+                    <input type="checkbox" id="rememberMe">
+                    Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="button" class="signin-btn" id="btnSignIn" onclick="iniciarSesion()">
+                Sign In
+            </button>
+
+            <div class="separator">
+                or continue with
+            </div>
+
+            <button class="social" onclick="signInWithGoogle()">
+                Continue with Google
+            </button>
+
+            <button class="social" onclick="signInWithMicrosoft()">
+                Continue with Microsoft
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Librería de Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<!-- Lógica de inicio de sesión -->
+<script src="login.js"></script>
+
+</body>
+</html>
