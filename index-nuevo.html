@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valority</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .screen {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* La imagen ocupa TODO el espacio, sin recortar */
+    .screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill; /* fill = se estira para cubrir exacto */
+      display: block;
+    }
+
+    /* ▶ Botón invisible sobre el ícono Play + botón Start
+       Imagen original: 1366×768
+       El botón Start está aprox en:
+         X: 270px → 270/1366 = 19.8%   ancho: 830px → 830/1366 = 60.8%
+         Y: 580px → 580/768  = 75.5%   alto:  130px → 130/768  = 16.9%
+    */
+    .btn-start {
+      position: absolute;
+      top: 75.5%;
+      left: 19.8%;
+      width: 60.8%;
+      height: 16.9%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      /* Descomenta para ver el botón: */
+      /* background: rgba(255,0,0,0.35); */
+    }
+
+    .btn-start:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <img src="images/home.png" alt="Valority Home" />
+    <button class="btn-start"
+            onclick="window.location.href='menu.html'"
+            aria-label="Iniciar Valority">
+    </button>
+  </div>
+</body>
+</html>
